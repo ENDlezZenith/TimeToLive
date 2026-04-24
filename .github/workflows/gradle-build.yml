@@ -31,13 +31,13 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew clean build
+          rm -f build/libs/*-sources.jar
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v7
         with:
           path: |
             build/libs/*.jar
-            !build/libs/*-sources.jar
 
       - name: Upload JARs to release
         if: github.event_name == 'release'
@@ -45,4 +45,3 @@ jobs:
         with:
           files: |
             build/libs/*.jar
-            !build/libs/*-sources.jar
