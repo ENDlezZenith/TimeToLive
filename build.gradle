@@ -12,7 +12,7 @@ targetCompatibility = JavaVersion.VERSION_17
 archivesBaseName = "${project.mod_name} ${project.mod_version} (${project.minecraft_version})"
 version = project.mod_version
 group = project.maven_group
-def CHANGELOG = new File("./gradle", "CHANGELOG.md").text
+def CHANGELOG = new File(project.rootDir, "gradle/CHANGELOG.md").text
 def SUPPORTED_VERSIONS = Arrays.asList(project.supported_versions.split(','))
 
 repositories {
