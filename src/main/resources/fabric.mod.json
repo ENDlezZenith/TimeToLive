@@ -5,25 +5,19 @@
 
   "name": "Time To Live",
   "description": "Displays a countdown above a TNT entity!",
-  "authors": [
-    "Schauweg"
-  ],
+  "authors": ["Schauweg"],
   "icon": "assets/timetolive/icon.png",
   "environment": "client",
   "entrypoints": {
-    "client": [
-      "schauweg.timetolive.Main"
-    ],
-    "modmenu": [ "schauweg.timetolive.modmenu.TTLModMenuIntegration" ]
+    "client": ["schauweg.timetolive.Main"],
+    "modmenu": ["schauweg.timetolive.modmenu.TTLModMenuIntegration"]
   },
-  "mixins": [
-    "timetolive.mixins.json"
-  ],
+  "mixins": ["timetolive.mixins.json"],
 
   "depends": {
     "fabricloader": ">=0.14.8",
     "fabric": "*",
-    "minecraft": "1.19.x",
+    "minecraft": "1.20.x",
     "java": ">=17"
   }
 }
