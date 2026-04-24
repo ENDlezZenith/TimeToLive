@@ -65,8 +65,19 @@ public class CountdownRenderer {
         matrices.translate(x - renderManager.camera.getPos().x, y - renderManager.camera.getPos().y + passedEntity.getHeight() + 0.5F, z - renderManager.camera.getPos().z);
 
         VertexConsumerProvider.Immediate immediate = mc.getBufferBuilders().getEntityVertexConsumers();
-        Quaternionf rotation = new Quaternionf(camera.getRotation());
-        rotation.scale(-1.0F);
+        Quaternionf rotation = null;
+
+        try {
+            rotation = (Quaternionf) camera.getRotation().clone();
+        } catch (CloneNotSupportedException e) {
+            System.err.println("Couldn't clone camera rotation");
+            e.printStackTrace();
+        }
+
+        if (rotation == null) {
+            return;
+        }
+
         matrices.multiply(rotation);
 
         matrices.scale(-0.025F, -0.025F, 0.025F);
